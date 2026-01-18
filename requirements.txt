@@ -1,7 +1,8 @@
-# RunPod SmolVLM Dependencies
+# RunPod SmolVLM2 Dependencies
 runpod>=1.6.0
-transformers>=4.45.0
+transformers>=4.46.0  # SmolVLM2 requires newer transformers
 torch>=2.2.0
 accelerate>=0.25.0
 pillow>=10.0.0
+num2words>=0.5.13  # Required by SmolVLM2 processor
 # flash-attn installed from pre-built wheel in Dockerfile (see comment there)
