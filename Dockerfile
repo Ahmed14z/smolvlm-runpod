@@ -1,5 +1,6 @@
-# RunPod Serverless Dockerfile for SmolVLM-500M
-# Optimized for fast cold starts
+# RunPod Serverless Dockerfile for SmolVLM2-2.2B-Instruct
+# More capable than SmolVLM-500M for screen/UI analysis
+# Requires ~5GB VRAM in bfloat16
 
 FROM runpod/pytorch:2.2.0-py3.10-cuda12.1.1-devel-ubuntu22.04
 
@@ -15,9 +16,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Pre-download model to bake into image (faster cold starts)
-RUN python -c "from transformers import AutoProcessor, AutoModelForVision2Seq; \
-    AutoProcessor.from_pretrained('HuggingFaceTB/SmolVLM-500M-Instruct'); \
-    AutoModelForVision2Seq.from_pretrained('HuggingFaceTB/SmolVLM-500M-Instruct')"
+# SmolVLM2 uses AutoModelForImageTextToText
+RUN python -c "from transformers import AutoProcessor, AutoModelForImageTextToText; \
+    AutoProcessor.from_pretrained('HuggingFaceTB/SmolVLM2-2.2B-Instruct'); \
+    AutoModelForImageTextToText.from_pretrained('HuggingFaceTB/SmolVLM2-2.2B-Instruct')"
 
 # Copy handler
 COPY handler.py .
