@@ -1,0 +1,7 @@
+# RunPod SmolVLM Dependencies
+runpod>=1.6.0
+transformers>=4.45.0
+torch>=2.2.0
+accelerate>=0.25.0
+pillow>=10.0.0
+flash-attn>=2.5.0
