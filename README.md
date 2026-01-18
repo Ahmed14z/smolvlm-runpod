@@ -15,7 +15,7 @@ Fast, lightweight vision-language model for real-time coaching analysis.
 ### Option 2: Docker Hub Deploy
 
 ```bash
-# Build locally
+# Build locally 
 docker build -t yourusername/smolvlm-runpod:latest .
 
 # Push to Docker Hub
